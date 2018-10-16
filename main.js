@@ -1,32 +1,53 @@
-function rowJet(INVENTORY) {
-    var title = document.getElementById("jet-title");
-    var image = document.getElementById("jet-img");
-
-    title.innerHTML = INVENTORY.jetSki.name;
-    image.innerHTML = INVENTORY.jetSki.url;
-    console.log(title);
-    console.log(image);
-}
-function rowCamaro(INVENTORY) {
-    var pd = document.getElementById("camaro-pd");
-    var stock = document.getElementById("camaro-stock");
-
-    pd.innerHTML = INVENTORY.camaro.per_day;
-    stock.innerHTML = INVENTORY.camaro.stock;
-}
-
 function rentItem() {
-    
-    for(const items of document.querySelectorAll("item-info"))
-    var button = items.querySelector(".add-btn");
-    var stock = items.querySelector(".stock");
+    for (const items of document.querySelectorAll(".item-info")) {
+        const button = items.querySelector(".add-btn");
+        const stock = items.querySelector(".stock");
+
+        button.addEventListener("click", function() {
+            const prevStock = Number(stock.innerText);
+            stock.innerText = prevStock - 1;
+        });
+    }
+}
+
+function inventoryRow(INVENTORY) {
+    var source = document.getElementById("inventory-row").innerHTML;
+    var template = Handlebars.compile(source);
+    var tbody = document.getElementById("inventory-rows");
+
+    for (var item in INVENTORY) {
+        var html = template(INVENTORY[item]);
+        tbody.insertAdjacentHTML("beforeend", html);
+    }
+}
+
+// function hideValidation() {
+//     const firstnameForm = document.forms["firstname-form"];
+//     const formInput = firstnameForm.elements["firstname-input"];
+//     const button = firstnameForm.querySelector("#4-wheeler-submit");
+//     const alert = document.querySelector("#first-check");
+
+//     button.addEventListener("click", function() {
+
+//     })
+// }
+
+function hideMain() {
+    const div = document.querySelector(".main");
+    const checkout = document.querySelector(".submit-form");
+    const button = document.querySelector(".add-btn");
 
     button.addEventListener("click", function() {
-        const prevStock = Number(stock.innerText)
-        stock.innerText = prevStock - 1;
+        div.hidden = true;
+        checkout.classList.remove("hide");
+        checkout.classList.add("show");
     });
 }
 
-rowJet(INVENTORY);
+function checkForm() {
+    
+}
+
+inventoryRow(INVENTORY);
 rentItem();
-rowCamaro(INVENTORY);
+hideMain();

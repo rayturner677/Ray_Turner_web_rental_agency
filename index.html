@@ -8,72 +8,104 @@
     <title>Ray's Rental Store</title>
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js" defer></script>
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" style="width:22rem">
-            <h1>Ray's Rental Store</h1>
-        </a>
-        <form class="form-inline">
-            <button class="btn btn-outline-primary my-2 my-sm-0 mr-3">Return</button>
-            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit"><img src="./photos/cart.png" alt=""
-                    style="width:1.5rem ;height:1.5rem"></button>
+    <div class="main show">
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" style="width:22rem">
+                <h1>Ray's Rental Store</h1>
+            </a>
+            <form class="form-inline">
+                <button class="btn btn-outline-primary my-2 my-sm-0 mr-3">Return</button>
+                <button class="btn btn-outline-primary my-2 my-sm-0" type="submit"><img src="./photos/cart.png" alt=""
+                        style="width:1.5rem ;height:1.5rem"></button>
+            </form>
+        </nav>
+        <div class="container col-lg-9 col-sm-6">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Inventory</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+
+                <tbody id="inventory-rows"></tbody>
+
+            </table>
+        </div>
+    </div>
+
+    <script id="inventory-row" text="text/x-handlebars-template">
+        <tr class="item-info">
+            <th scope="row"></th>
+            <td class="item-name">{{ name }}</td>
+            <td class="inventory"><img src={{ url }} alt="" /></td>
+            <td>price per day:{{ per_day }}<span id="ski-jet-pd"> </span> stock: {{ stock }}<span class="stock"></span></td>
+            <td>
+                <button type="button" class="add-btn btn-primary btn-sm">Rent Item</button>
+            </td>
+        </tr>
+    </script>
+
+    <div class="submit-form container hide border p-5 mt-5">
+        <form class="mx-auto pt-5" style="width: 24rem" name="firstname-form">
+            <fieldset>
+                <label for="checkout" placeholder="firstname">First name:</label>
+                <input type="number" name="firstname-input" id="" required="required">
+
+                <p id="first-check">Invalid</p>
+
+
+                <label for="checkout" placeholder="firstname">Last name:</label>
+                <input type="number" name="firstname-input" id="" required="required">
+
+                <p id="first-check">Invalid</p>
+
+
+                <label for="checkout" placeholder="firstname">City:</label>
+                <input type="number" name="firstname-input" id="" required="required">
+
+                <p id="first-check">Invalid</p>
+
+
+                <label for="checkout" placeholder="firstname">State:</label>
+                <input type="number" name="firstname-input" id="" required="required">
+
+                <p id="first-check">Invalid</p>
+
+
+                <label for="checkout" placeholder="firstname">State:</label>
+                <input type="number" name="firstname-input" id="" required='required'>
+                <p id="first-check">Invalid</p>
+
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="check-cash" required="required">
+                    <label class="form-check-label" for="defaultCheck1">
+                        cash
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="check-card" required="required">
+                    <label class="form-check-label" for="defaultCheck2">
+                        card
+                    </label>
+                </div>
+                <button id="form-submit" type="submit" class="btn btn-success submit-btn">Submit</button>
+            </fieldset>
         </form>
-    </nav>
-    <div class="container col-lg-9 col-sm-6">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col"></th>
-                    <th scope="col">Inventory</th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="item-info">
-                    <th scope="row"></th>
-                    <td id="jet-title"></td>
-                    <td class="inventory">
-                        <img id="jet-img" src="./photos/jet-ski.jpeg" alt="">
-                    </td>
-                    <td>price per day:<span id="ski-jet-pd"> </span> stock: <span class="stock"></span></td>
-                    <td>
-                        <button type="button" class="add-btn btn-primary btn-sm">Rent Item</button>
-                    </td>
-                </tr>
-
-                <tr class="item-info">
-                    <th scope="row"></th>
-                    <td id="camaro-title">camaro</td>
-                    <td class="inventory">
-                        <img id="camaro-img" src="./photos/camaro.jpeg" alt=""></td>
-                    <td>price per day:<span id="camaro-pd"> </span> stock: <span class="stock"></span></td>
-                    <td><button type="button" class="add-btn btn-primary btn-sm">Rent Item</button></td>
-                </tr>
-
-                <tr class="item-info">
-                    <th scope="row"></th>
-                    <td id="honda-title">4-wheeler</td>
-                    <td class="inventory">
-                        <img id="honda-img" src="./photos/4-wheeler.jpeg" alt="">
-                    </td>
-                    <td>price per day<span id="4-wheeler-pd"> </span> stock: <span class="stock"></span></td>
-                    <td><button type="button" class="add-btn btn-primary btn-sm">Rent Item</button></td>
-                </tr>
-            </tbody>
-        </table>
-
-
-
     </div>
 
     <script src="./bootstrap/js/bootstrap.js"></script>
     <script src="./bootstrap/js/jquery.js"></script>
     <script src="./bootstrap/js/popper.js"></script>
-    <script src="data.js"></script>
-    <script src="main.js"></script>
+    <script src="data.js" defer></script>
+    <script src="main.js" defer></script>
 </body>
 
 </html>
