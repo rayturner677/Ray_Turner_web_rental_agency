@@ -14,7 +14,7 @@
 <body>
     <div class="main show">
         <nav class="navbar navbar-light bg-light">
-            <a class="navbar-brand" style="width:22rem">
+            <a class="navbar-brand col-lg-9 col-sm-6" style="width:22rem">
                 <h1>Ray's Rental Store</h1>
             </a>
             <form class="form-inline">
@@ -23,7 +23,7 @@
                         style="width:1.5rem ;height:1.5rem"></button>
             </form>
         </nav>
-        <div class="container col-lg-9 col-sm-6">
+        <div class="container col-lg-12 col-sm-6">
             <table class="table">
                 <thead>
                     <tr>
@@ -40,11 +40,11 @@
         </div>
     </div>
 
-    <script id="inventory-row" text="text/x-handlebars-template">
-        <tr class="item-info">
+    <script id="inventory-row" type="text/x-handlebars-template">
+        <tr class="item-info col-lg-12 col-sm-6">
             <th scope="row"></th>
             <td class="item-name">{{ name }}</td>
-            <td class="inventory"><img src={{ url }} alt="" /></td>
+            <td class="inventory"><img src={{url}} alt="" /></td>
             <td>price per day:{{ per_day }}<span id="ski-jet-pd"> </span> stock: {{ stock }}<span class="stock"></span></td>
             <td>
                 <button type="button" class="add-btn btn-primary btn-sm">Rent Item</button>
@@ -52,53 +52,63 @@
         </tr>
     </script>
 
-    <div class="submit-form container hide border p-5 mt-5">
-        <form class="mx-auto pt-5" style="width: 24rem" name="firstname-form">
-            <fieldset>
-                <label for="checkout" placeholder="firstname">First name:</label>
-                <input type="number" name="firstname-input" id="" required="required">
+    <div class="submit-form col-lg-12 col-sm-6 hide">
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" style="width:22rem">
+                <h1>Ray's Rental Store</h1>
+            </a>
+            <form class="form-inline">
+                <button class="btn btn-outline-primary my-2 my-sm-0 mr-3">Return</button>
+                <button class="btn btn-outline-primary my-2 my-sm-0" type="submit"><img src="./photos/cart.png" alt=""
+                        style="width:1.5rem ;height:1.5rem"></button>
+            </form>
+        </nav>
+        <div class="container border p-5 mt-5">
+            <form class="mx-auto pt-5" style="width: 24rem" name="checkout-form">
+                <fieldset>
+                    <label for="first">First name:</label>
+                    <input type="text" name="firstname-input" id="first" required="required"><br />
 
-                <p id="first-check">Invalid</p>
-
-
-                <label for="checkout" placeholder="firstname">Last name:</label>
-                <input type="number" name="firstname-input" id="" required="required">
-
-                <p id="first-check">Invalid</p>
-
-
-                <label for="checkout" placeholder="firstname">City:</label>
-                <input type="number" name="firstname-input" id="" required="required">
-
-                <p id="first-check">Invalid</p>
-
-
-                <label for="checkout" placeholder="firstname">State:</label>
-                <input type="number" name="firstname-input" id="" required="required">
-
-                <p id="first-check">Invalid</p>
+                    <label for="last">Last name:</label>
+                    <input type="text" name="last-input" id="last" required="required"><br />
 
 
-                <label for="checkout" placeholder="firstname">State:</label>
-                <input type="number" name="firstname-input" id="" required='required'>
-                <p id="first-check">Invalid</p>
+                    <label for="city">City:</label>
+                    <input type="text" name="city-input" id="city" required="required"><br />
 
 
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="check-cash" required="required">
-                    <label class="form-check-label" for="defaultCheck1">
-                        cash
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="check-card" required="required">
-                    <label class="form-check-label" for="defaultCheck2">
-                        card
-                    </label>
-                </div>
-                <button id="form-submit" type="submit" class="btn btn-success submit-btn">Submit</button>
-            </fieldset>
-        </form>
+                    <label for="state">State:</label>
+                    <input name="state-input" id="state" required="required"><br />
+
+
+                    <label for="zip">zip:</label>
+                    <input name="zip-input" id="zip" required='required'><br />
+
+                    <label for="email">email:</label>
+                    <input type="email" name="email-input" id="email" required='required'><br />
+
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="cash" value="option1"
+                            checked>
+                        <label class="form-check-label" for="cash">cash</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="check" value="option2">
+                        <label class="form-check-label" for="check">check</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="card" value="option3">
+                        <label class="form-check-label" for="card">card</label>
+                    </div>
+                    <button id="form-submit" type="submit" class="btn btn-success submit-btn">Submit</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+    <div class="done-shopping col-sm-6 hide">
+        <h2 class="mx-auto" style="width:70rem">Thanks for Shopping With Us <span id="fn"></span> <span id="ln"></span>!!</h2>
     </div>
 
     <script src="./bootstrap/js/bootstrap.js"></script>

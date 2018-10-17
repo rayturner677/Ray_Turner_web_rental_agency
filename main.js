@@ -21,17 +21,6 @@ function inventoryRow(INVENTORY) {
     }
 }
 
-// function hideValidation() {
-//     const firstnameForm = document.forms["firstname-form"];
-//     const formInput = firstnameForm.elements["firstname-input"];
-//     const button = firstnameForm.querySelector("#4-wheeler-submit");
-//     const alert = document.querySelector("#first-check");
-
-//     button.addEventListener("click", function() {
-
-//     })
-// }
-
 function hideMain() {
     const div = document.querySelector(".main");
     const checkout = document.querySelector(".submit-form");
@@ -41,13 +30,32 @@ function hideMain() {
         div.hidden = true;
         checkout.classList.remove("hide");
         checkout.classList.add("show");
+        rentItem();
     });
 }
 
-function checkForm() {
-    
+function setMessage() {
+    const form = document.forms["checkout-form"];
+    const first = form.elements["firstname-input"];
+    const last = form.elements["last-input"];
+    const firstName = document.querySelector("#fn");
+    const lastName = document.querySelector("#ln");
+
+    firstName.innerText = first.value;
+    lastName.innerText = last.value;
+}
+
+function finishShopping() {
+    const formSheet = document.querySelector(".submit-form");
+    const message = document.querySelector(".done-shopping");
+
+    formSheet.addEventListener("submit", function() {
+        message.classList.remove("hide");
+        message.classList.add("show");
+    });
 }
 
 inventoryRow(INVENTORY);
-rentItem();
 hideMain();
+setMessage();
+finishShopping();
