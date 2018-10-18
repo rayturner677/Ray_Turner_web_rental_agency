@@ -21,4 +21,3 @@ const INVENTORY = {
         url: "./photos/jet-ski.jpeg"
     }
 };
-

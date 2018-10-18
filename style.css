@@ -36,3 +36,12 @@ a {
 .invalid {
     border-color: red;
 }
+
+.main {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.mess {
+    font-size: 2rem;
+}

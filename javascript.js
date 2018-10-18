@@ -24,14 +24,15 @@ function inventoryRow(INVENTORY) {
 function hideMain() {
     const div = document.querySelector(".main");
     const checkout = document.querySelector(".submit-form");
-    const button = document.querySelector(".add-btn");
 
-    button.addEventListener("click", function() {
-        div.hidden = true;
-        checkout.classList.remove("hide");
-        checkout.classList.add("show");
-        rentItem();
-    });
+    for (const item of document.querySelectorAll(".item-info")) {
+        item.querySelector(".add-btn").addEventListener("click", function() {
+            div.hidden = true;
+            checkout.classList.remove("hide");
+            checkout.classList.add("show");
+            // rentItem();
+        });
+    }
 }
 
 function setMessage() {
@@ -40,9 +41,14 @@ function setMessage() {
     const last = form.elements["last-input"];
     const firstName = document.querySelector("#fn");
     const lastName = document.querySelector("#ln");
+    const cost = document.getElementById("cost");
 
     firstName.innerText = first.value;
     lastName.innerText = last.value;
+
+    for (item in INVENTORY) {
+        cost.innerText = INVENTORY[item].per_day;
+    }
 }
 
 function finishShopping() {

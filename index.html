@@ -14,7 +14,7 @@
 <body>
     <div class="main show">
         <nav class="navbar navbar-light bg-light">
-            <a class="navbar-brand col-lg-9 col-sm-6" style="width:22rem">
+            <a class="navbar-brand" style="width:22rem">
                 <h1>Ray's Rental Store</h1>
             </a>
             <form class="form-inline">
@@ -23,7 +23,7 @@
                         style="width:1.5rem ;height:1.5rem"></button>
             </form>
         </nav>
-        <div class="container col-lg-12 col-sm-6">
+        <div class="container">
             <table class="table">
                 <thead>
                     <tr>
@@ -41,7 +41,7 @@
     </div>
 
     <script id="inventory-row" type="text/x-handlebars-template">
-        <tr class="item-info col-lg-12 col-sm-6">
+        <tr class="item-info">
             <th scope="row"></th>
             <td class="item-name">{{ name }}</td>
             <td class="inventory"><img src={{url}} alt="" /></td>
@@ -52,7 +52,7 @@
         </tr>
     </script>
 
-    <div class="submit-form col-lg-12 col-sm-6 hide">
+    <div class="submit-form hide">
         <nav class="navbar navbar-light bg-light">
             <a class="navbar-brand" style="width:22rem">
                 <h1>Ray's Rental Store</h1>
@@ -63,28 +63,36 @@
                         style="width:1.5rem ;height:1.5rem"></button>
             </form>
         </nav>
-        <div class="container border p-5 mt-5">
+        <div class="container border p-5 mt-3">
             <form class="mx-auto pt-5" style="width: 24rem" name="checkout-form">
                 <fieldset>
-                    <label for="first">First name:</label>
+                    <label for="first" class="col-sm-4">First name:</label>
                     <input type="text" name="firstname-input" id="first" required="required"><br />
 
-                    <label for="last">Last name:</label>
+                    <label for="last" class="col-sm-4">Last name:</label>
                     <input type="text" name="last-input" id="last" required="required"><br />
 
 
-                    <label for="city">City:</label>
+                    <label for="city" class="col-sm-4">City:</label>
                     <input type="text" name="city-input" id="city" required="required"><br />
 
 
-                    <label for="state">State:</label>
+                    <label for="state" class="col-sm-4">State:</label>
                     <input name="state-input" id="state" required="required"><br />
 
 
-                    <label for="zip">zip:</label>
+                    <label for="phone" class="col-sm-4">Phone Number:</label>
+                    <input name="state-input" id="phone" required="required"><br />
+
+
+                    <label for="address" class="col-sm-4">Street Address:</label>
+                    <input name="state-input" id="address" required="required"><br />
+
+
+                    <label for="zip" class="col-sm-4">zip:</label>
                     <input name="zip-input" id="zip" required='required'><br />
 
-                    <label for="email">email:</label>
+                    <label for="email" class="col-sm-4">email:</label>
                     <input type="email" name="email-input" id="email" required='required'><br />
 
 
@@ -107,15 +115,17 @@
         </div>
     </div>
 
-    <div class="done-shopping col-sm-6 hide">
-        <h2 class="mx-auto" style="width:30rem">Thanks for Shopping With Us <span id="fn"></span> <span id="ln"></span>!!</h2>
+    <div class="done-shopping hide">
+        <a href="./index.html" class="mess mx-auto" style="width:30rem">Thanks
+            for Shopping With Us <span id="fn"></span> <span id="ln"></span>, your total is $<span id="cost"></span>!!</a>
+
     </div>
 
     <script src="./bootstrap/js/bootstrap.js"></script>
     <script src="./bootstrap/js/jquery.js"></script>
     <script src="./bootstrap/js/popper.js"></script>
     <script src="data.js" defer></script>
-    <script src="main.js" defer></script>
+    <script src="javascript.js" defer></script>
 </body>
 
 </html>
