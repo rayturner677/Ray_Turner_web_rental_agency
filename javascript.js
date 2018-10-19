@@ -30,7 +30,7 @@ function hideMain() {
             div.hidden = true;
             checkout.classList.remove("hide");
             checkout.classList.add("show");
-            // rentItem();
+            rentItem();
         });
     }
 }
@@ -47,7 +47,8 @@ function setMessage() {
     lastName.innerText = last.value;
 
     for (item in INVENTORY) {
-        cost.innerText = INVENTORY[item].per_day;
+        const value = document.querySelector(".add-btn").value;
+        cost.innerText = value;
     }
 }
 

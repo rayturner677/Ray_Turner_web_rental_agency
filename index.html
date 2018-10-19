@@ -18,9 +18,6 @@
                 <h1>Ray's Rental Store</h1>
             </a>
             <form class="form-inline">
-                <button class="btn btn-outline-primary my-2 my-sm-0 mr-3">Return</button>
-                <button class="btn btn-outline-primary my-2 my-sm-0" type="submit"><img src="./photos/cart.png" alt=""
-                        style="width:1.5rem ;height:1.5rem"></button>
             </form>
         </nav>
         <div class="container">
@@ -47,7 +44,7 @@
             <td class="inventory"><img src={{url}} alt="" /></td>
             <td>price per day:{{ per_day }}<span id="ski-jet-pd"> </span> stock: {{ stock }}<span class="stock"></span></td>
             <td>
-                <button type="button" class="add-btn btn-primary btn-sm">Rent Item</button>
+                <button type="button" value={{per_day}} class="add-btn btn-primary btn-sm">Rent Item</button>
             </td>
         </tr>
     </script>
