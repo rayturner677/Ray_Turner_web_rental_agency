@@ -15,7 +15,7 @@ const INVENTORY = {
     },
     jetSki: {
         name: "jet-ski",
-        per_day: 29,
+        per_day: 30,
         stock: 8,
         price: 4000,
         url: "./photos/jet-ski.jpeg"

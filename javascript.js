@@ -46,9 +46,19 @@ function setMessage() {
     firstName.innerText = first.value;
     lastName.innerText = last.value;
 
-    for (item in INVENTORY) {
-        const value = document.querySelector(".add-btn").value;
-        cost.innerText = value;
+    for (const item of document.querySelectorAll(".item-info")) {
+        const button = Number(item.querySelector(".add-btn").value);
+        item.querySelector(".add-btn").addEventListener("click", function() {
+            if (button === 180) {
+                cost.innerText = 180;
+            } else if (button === 30) {
+                cost.innerText = 30;
+            } else {
+                cost.innerText = 29;
+            }
+        });
+
+        console.log(button);
     }
 }
 
