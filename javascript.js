@@ -40,12 +40,10 @@ function setMessage() {
     const first = form.elements["firstname-input"];
     const last = form.elements["last-input"];
     const firstName = document.querySelector("#fn");
-    const lastName = document.querySelector("#ln");
     const cost = document.getElementById("cost");
 
     firstName.innerText = first.value;
-    lastName.innerText = last.value;
-
+    
     for (const item of document.querySelectorAll(".item-info")) {
         const button = Number(item.querySelector(".add-btn").value);
         item.querySelector(".add-btn").addEventListener("click", function() {
@@ -57,8 +55,6 @@ function setMessage() {
                 cost.innerText = 29;
             }
         });
-
-        console.log(button);
     }
 }
 
